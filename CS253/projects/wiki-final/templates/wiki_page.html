@@ -1,0 +1,12 @@
+{% extends "wiki_base.html" %}
+
+{% block login_area %}
+	{% for item in login_area_links %}
+		<a class="login-link" href="{{ item.href }}">{{ item.caption }}</a>		
+	{% endfor %}
+{% endblock %}   
+
+{% block content %}
+  {{e.render() | safe}}
+  <div class="age">{{query_time}}</div> 
+{% endblock %}

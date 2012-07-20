@@ -1,0 +1,29 @@
+{% extends "wiki_base.html" %}
+
+{% block login_area %}
+	{% for item in login_area_links %}
+		<a class="login-link" href="{{ item.href }}">{{ item.caption }}</a>		
+	{% endfor %}
+{% endblock %}   
+
+{% block content %}
+  <table>
+  {% for p in pages %}
+  	<tr>
+  	<td>
+  	{{p.created}}
+  	</td>
+  	<td>
+    {{p.content}}
+    </td>
+    <td>
+    <a class="login-link" href="{{ p.name }}?v={{p.key().id()}}">view
+    </td>
+    <td>
+    <a class="login-link" href="/_edit{{ p.name }}?v={{p.key().id()}}">edit
+    </td>    
+    </tr>
+  {% endfor %}
+  </table>
+  <div class="age">{{query_time}}</div>  
+{% endblock %}
